@@ -19,6 +19,9 @@ public class PlayerController : MonoBehaviour
     private float _meleeROF = 0.5f;
 
     [SerializeField]
+    private float _proyectileSpeed = 10.0f;
+
+    [SerializeField]
     [Tooltip("barrel for instantiating proyectiles")]
     private Transform _barrel;
     private bool _shooting = false;
@@ -114,7 +117,7 @@ public class PlayerController : MonoBehaviour
     {
         _shooting = true;
         GameObject newBullet = Instantiate(bulletPrefab, _barrel.position, Quaternion.identity);
-        newBullet.GetComponent<Rigidbody>().AddRelativeForce(transform.forward * 10, ForceMode.Impulse);
+        newBullet.GetComponent<Rigidbody>().AddRelativeForce(transform.forward * _proyectileSpeed, ForceMode.Impulse);
         yield return new WaitForSeconds(_rof);
         Destroy(newBullet, 3);
         _shooting = false;
