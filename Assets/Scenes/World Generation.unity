@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7d9720e04c63de4fb632eef0d5954de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  difficulty: 20
+  difficulty: 100
   normalTileThreshold: 0.5
   offset: 2.5
   scale: 5
@@ -165,8 +165,9 @@ MonoBehaviour:
   treasureCount:
     minimum: 10
     maximum: 30
-  camera: {fileID: 1904113934}
+  cam: {fileID: 1904113934}
   player: {fileID: 8948350649830089134, guid: da6122dc3e3b09248827890f81c9b92c, type: 3}
+  _playerInstance: {fileID: 0}
   exit: {fileID: 5111630762130461988, guid: d5aefa4c970f2314fa9a98e74a72dbd4, type: 3}
   floorTiles:
   - {fileID: 5599862117061706863, guid: d73c1cbcf3c713e4382bea6d8a454f72, type: 3}
