@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transparency: 1
-  proyectilePrefab: {fileID: 6193090123046821130, guid: cd0fda97d0ffe2147854e16aa91d6649,
+  proyectilePrefab: {fileID: 2953281184561236161, guid: f5bd2a379332b40459904b162188d0c9,
     type: 3}
   range: 10
   _runSpeed: 2

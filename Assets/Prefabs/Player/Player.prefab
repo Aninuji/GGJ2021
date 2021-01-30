@@ -118,6 +118,25 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!95 &1910192648
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8137868533255819585}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9e21103be9879c140a18f3f1884abf4f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8948350648088564021
 GameObject:
   m_ObjectHideFlags: 0
@@ -327,29 +346,10 @@ MonoBehaviour:
   _meleeROF: 2
   _proyectileSpeed: 15
   _barrel: {fileID: 8948350650069197573}
-  bulletPrefab: {fileID: 261274792076724761, guid: 00e5edc77d4ab04418a79e1fbc17e4c5,
+  bulletPrefab: {fileID: 667945209085792711, guid: 028ac7c3c3f4163458bd3d79c0f463f3,
     type: 3}
   meleeHitBox: {fileID: 7264452117347537670, guid: 3f4492f8687d0b74daab906d7e978042,
     type: 3}
---- !u!95 &1910192648
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8137868533255819585}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9e21103be9879c140a18f3f1884abf4f, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8948350650069197572
 GameObject:
   m_ObjectHideFlags: 0
