@@ -8,10 +8,11 @@ public class HealthBar : MonoBehaviour
     [SerializeField]
     private Slider slider;
 
-    [SerializeField]
-    private TMP_Text info;
-
     private int maxHealth;
+
+    public Gradient gradient;
+    public Image fill;
+
 
     void Awake()
     {
@@ -21,12 +22,13 @@ public class HealthBar : MonoBehaviour
     public void SetMaxHealth(int health)
     {
         slider.maxValue = health;
-        info.text = health + "/" + health;
         maxHealth = health;
+        fill.color = gradient.Evaluate(1f);
     }
+    
     public void SetHealth(int health)
     {
         slider.value = health;
-        info.text = health + "/" + maxHealth;
+        fill.color = gradient.Evaluate(slider.normalizedValue);
     }
 }

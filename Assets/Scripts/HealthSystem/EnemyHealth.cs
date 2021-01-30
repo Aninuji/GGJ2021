@@ -49,4 +49,6 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         bar.SetMaxHealth(MaxHealth);
     }
 
+
+
 }
