@@ -26,7 +26,7 @@ public class Saeta : MonoBehaviour
 
     private void Start()
     {
-        _player = GameObject.Find("Player");
+        _player = WorldGenerator.Instance._playerInstance;
         _navMesh = GetComponent<NavMeshAgent>();
         _meshRenderer = GetComponent<MeshRenderer>();
 
@@ -49,7 +49,10 @@ public class Saeta : MonoBehaviour
         if (Vector3.Distance(_player.transform.position, transform.position) <= range)
         {
             Debug.Log("Yeet");
-            transform.position = new Vector3(transform.position.x - playerPos.x * Time.deltaTime * _runSpeed, transform.position.y, transform.position.z - playerPos.z * Time.deltaTime * _runSpeed / 2);
+            Vector3 desiredPos = new Vector3(transform.position.x - playerPos.x, transform.position.y, transform.position.z - playerPos.z);
+
+            
+            _navMesh.destination = transform.position + desiredPos;
             transform.LookAt(new Vector3(playerPos.x, transform.position.y, playerPos.z));
             LerpColor();
 

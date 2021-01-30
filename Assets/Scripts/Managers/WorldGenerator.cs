@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
+
+using Cinemachine;
 using Random = UnityEngine.Random;         //Tells Random to use the Unity Engine random number generator.
 
 public class WorldGenerator : Singleton<WorldGenerator>
@@ -28,20 +31,33 @@ public class WorldGenerator : Singleton<WorldGenerator>
     [Range(0, 1)]
     public float normalTileThreshold = 0.5f;
     public float offset = 1f;
+
+    public float scale = 2;
     public int columns = 8;                                         //Number of columns in our game board.
     public int rows = 8;                                            //Number of rows in our game board.
     public Count wallCount = new Count(5, 9);                        //Lower and upper limit for our random number of walls per level.
-    public Count foodCount = new Count(1, 5);                        //Lower and upper limit for our random number of food items per level.
+    public Count propCount = new Count(1, 5);                        //Lower and upper limit for our random number of prop items per level.
+
+    public Count treasureCount = new Count(1, 5);                        //Lower and upper limit for our random number of treasure items per level.
+
+    public CinemachineVirtualCamera cam;
+    public GameObject player;
+
+    [HideInInspector]
+    public GameObject _playerInstance;
+
     public GameObject exit;                                            //Prefab to spawn for exit.
     public GameObject[] floorTiles;                                    //Array of floor prefabs.
+    public GameObject[] snowTiles;                                    //Array of floor prefabs.
     public GameObject[] wallTiles;                                    //Array of wall prefabs.
-    public GameObject[] foodTiles;                                    //Array of food prefabs.
+    public GameObject[] propTiles;                                    //Array of prop prefabs.
+    public GameObject[] treasureTiles;                                    //Array of prop prefabs.
     public GameObject[] enemyTiles;                                    //Array of enemy prefabs.
     public GameObject[] outerWallTiles;                                //Array of outer tile prefabs.
 
     private Transform boardHolder;                                    //A variable to store a reference to the transform of our Board object.
     private List<Vector3> gridPositions = new List<Vector3>();    //A list of possible locations to place tiles.
-
+    private NavMeshSurface surface;
 
     //Clears our list gridPositions and prepares it to generate a new board.
     void InitialiseList()
@@ -67,7 +83,8 @@ public class WorldGenerator : Singleton<WorldGenerator>
     {
         //Instantiate Board and set boardHolder to its transform.
         boardHolder = new GameObject("Board").transform;
-
+        surface = boardHolder.gameObject.AddComponent<NavMeshSurface>();
+        surface.collectObjects = CollectObjects.Children;
         //Loop along x axis, starting from -1 (to fill corner) with floor or outerwall edge tiles.
         for (int x = -1; x < columns + 1; x++)
         {
@@ -76,7 +93,7 @@ public class WorldGenerator : Singleton<WorldGenerator>
             {
                 Vector3 finalPos = new Vector3(x * offset, 0f, y * offset);
                 //Choose a random tile from our array of floor tile prefabs and prepare to instantiate it.
-                GameObject toInstantiate = floorTiles[Random.Range(0, floorTiles.Length)];
+                GameObject toInstantiate = PerlinTile(new Vector2(x, y));
                 //Check if we current position is at board edge, if so choose a random outer wall prefab from our array of outer wall tiles.
                 if (x == -1 || x == columns || y == -1 || y == rows)
                 {
@@ -87,11 +104,11 @@ public class WorldGenerator : Singleton<WorldGenerator>
                 //Instantiate the GameObject instance using the prefab chosen for toInstantiate at the Vector3 corresponding to current grid position in loop, cast it to GameObject.
                 GameObject instance =
                     Instantiate(toInstantiate, finalPos, Quaternion.identity) as GameObject;
-
                 //Set the parent of our newly instantiated object instance to boardHolder, this is just organizational to avoid cluttering hierarchy.
                 instance.transform.SetParent(boardHolder);
             }
         }
+
     }
 
 
@@ -128,7 +145,10 @@ public class WorldGenerator : Singleton<WorldGenerator>
             GameObject tileChoice = tileArray[Random.Range(0, tileArray.Length)];
 
             //Instantiate tileChoice at the position returned by RandomPosition with no change in rotation
-            Instantiate(tileChoice, randomPosition, Quaternion.identity);
+            GameObject instance = Instantiate(tileChoice, randomPosition, Quaternion.identity);
+
+            instance.transform.SetParent(boardHolder);
+
         }
     }
 
@@ -145,29 +165,51 @@ public class WorldGenerator : Singleton<WorldGenerator>
         //Instantiate a random number of wall tiles based on minimum and maximum, at randomized positions.
         LayoutObjectAtRandom(wallTiles, wallCount.minimum, wallCount.maximum);
 
-        //Instantiate a random number of food tiles based on minimum and maximum, at randomized positions.
-        LayoutObjectAtRandom(foodTiles, foodCount.minimum, foodCount.maximum);
+        //Instantiate a random number of prop tiles based on minimum and maximum, at randomized positions.
+        LayoutObjectAtRandom(treasureTiles, treasureCount.minimum, treasureCount.maximum);
+
+        //Instantiate a random number of prop tiles based on minimum and maximum, at randomized positions.
+        LayoutObjectAtRandom(propTiles, propCount.minimum, propCount.maximum);
+
+
+        //Before adding the enemies, but after we added anything else; we build the navmesh
+        surface.BuildNavMesh();
+
+        
+        //Instantiate the exit tile in the upper right hand corner of our game board
+        Instantiate(exit, new Vector3(0f, 0f, 0f), Quaternion.identity);
+
+        _playerInstance = Instantiate(player, new Vector3(columns - 1, 2.5f, rows - 1), Quaternion.identity);
+        cam.Follow = _playerInstance.transform;
 
         //Determine number of enemies based on current level number, based on a logarithmic progression
         int enemyCount = (int)Mathf.Log(level, 2f);
-
         //Instantiate a random number of enemies based on minimum and maximum, at randomized positions.
         LayoutObjectAtRandom(enemyTiles, enemyCount, enemyCount);
 
-        //Instantiate the exit tile in the upper right hand corner of our game board
-        Instantiate(exit, new Vector3(columns - 1, 0f, rows - 1), Quaternion.identity);
+
     }
 
     // Calculates Perlin Noise based tiles for the ground.
-    public GameObject PerlinTile(Vector2 perlinPos, Vector3 tilePos)
+    public GameObject PerlinTile(Vector2 perlinPos)
     {
-        float perlinNoise = Mathf.PerlinNoise(perlinPos.x, perlinPos.y);
+        float xCoord = perlinPos.x / columns * scale;
+        float yCoord = perlinPos.y / rows * scale;
+
+        float perlinNoise = Mathf.PerlinNoise(xCoord, yCoord);
+        GameObject toInstantiate = null;
+
         if (perlinNoise <= normalTileThreshold)
         {
-
+            toInstantiate = floorTiles[Random.Range(0, floorTiles.Length)];
         }
+        else
+        {
+            toInstantiate = snowTiles[Random.Range(0, snowTiles.Length)];
+        }
+
         //placeholder para evitar errores
-        return new GameObject();
+        return toInstantiate;
     }
 
     void Start()

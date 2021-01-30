@@ -12,7 +12,7 @@ public class Fiera : MonoBehaviour
 
     private void Start()
     {
-        _player = GameObject.Find("Player");
+        _player = WorldGenerator.Instance._playerInstance;
         _navMesh = GetComponent<NavMeshAgent>();
     }
 

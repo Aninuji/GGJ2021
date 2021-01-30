@@ -19,7 +19,7 @@ public class AlmaPutrida : MonoBehaviour
     private void Start()
     {
         childrens = new List<GameObject>();
-        _player = GameObject.Find("Player");
+        _player = WorldGenerator.Instance._playerInstance;
         _navMesh = GetComponent<NavMeshAgent>();
 
         if (_isSpawner)
