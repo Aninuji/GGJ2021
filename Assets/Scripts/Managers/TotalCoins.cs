@@ -21,6 +21,7 @@ public class TotalCoins : MonoBehaviour
         set
         {
             _totalCoins = value;
+            setText();
             if (coinChangeEvent != null) coinChangeEvent(value);
 
         }

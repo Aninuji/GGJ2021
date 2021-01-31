@@ -8,7 +8,10 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     public int MaxHealth;
 
     public GameObject deathParticles;
-
+    public AudioSource playAudio;
+    public AudioClip damageClip;
+    public AudioClip deadClip;
+    private bool auxiliar = false;
     private NavMeshAgent agent;
     private int _CurrentHealth;
     public int CurrentHealth
@@ -40,12 +43,17 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
     public void TakeDamage(int Damage)
     {
+        if (auxiliar)
+        {
+            playAudio.PlayOneShot(damageClip, 0.2f);
+        }
         CurrentHealth -= Damage;
         bar.SetHealth(CurrentHealth);
     }
 
     public void Death()
     {
+        playAudio.PlayOneShot(deadClip, 0.2f);
         deathParticles.SetActive(true);
         isAboutToDie = true;
         col.enabled = false;

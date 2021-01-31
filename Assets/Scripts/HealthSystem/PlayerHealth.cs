@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour, IDamageable
 {
+    public AudioSource playAudio;
+    public AudioClip damageClip;
+    public AudioClip deadClip;
+    private bool auxiliar = false;
 
     public int MaxHealth;
     private int _CurrentHealth;
@@ -37,16 +41,30 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         CurrentHealth -= Damage;
         bar.SetHealth(CurrentHealth);
 
+        if (auxiliar)
+        {
+            playAudio.PlayOneShot(damageClip, 0.4f);
+        }
+        else
+        {
+            StartCoroutine(WaitForSound(0.5f));
+        }
+        auxiliar = true;
     }
 
     public void Death()
     {
+        playAudio.PlayOneShot(deadClip, 0.7f);
+        StartCoroutine(WaitForSound(1.2f));
         Destroy(this.gameObject, 0.5f);
 
 
         GameManager.Instance.GameOver();
     }
-
+    public IEnumerator WaitForSound(float time)
+    {
+        yield return new WaitForSeconds(time);
+    }
     void Start()
     {
         MaxHealth = (int)UpgradeManager.Instance.Health.value;

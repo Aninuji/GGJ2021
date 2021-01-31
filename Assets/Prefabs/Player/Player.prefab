@@ -541,6 +541,7 @@ MonoBehaviour:
   playAudio: {fileID: 1749756970473628672}
   stepClip: {fileID: 8300000, guid: da7c05194443cfa45af522faefdaae41, type: 3}
   attackClip: {fileID: 8300000, guid: 66c41ccb667c4b544b02827614333db7, type: 3}
+  coinClip: {fileID: 8300000, guid: 2f762d0de5579a44696d8f40ca5f38b4, type: 3}
 --- !u!54 &716596333
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -569,6 +570,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16d4877741e639649bf3c1fe6bd31151, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playAudio: {fileID: 1749756970473628672}
+  damageClip: {fileID: 8300000, guid: 14ebbf35343a57a41af1c2429b2a310a, type: 3}
+  deadClip: {fileID: 8300000, guid: f9e587622e0b96544ac3030a09af61b6, type: 3}
   MaxHealth: 10
   bar: {fileID: 5095903917379212950}
 --- !u!82 &1749756970473628672

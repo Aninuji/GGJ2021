@@ -37,20 +37,23 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     public AudioSource playAudio;
-     public AudioClip stepClip;
-     public AudioClip attackClip;
-//    public bool isSoundPlayed;
+    public AudioClip stepClip;
+    public AudioClip attackClip;
+    public AudioClip coinClip;
+    private bool auxiliar = false;
+
+    //    public bool isSoundPlayed;
 
 
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
-        playAudio= GetComponent<AudioSource>();
+        playAudio = GetComponent<AudioSource>();
 
         _playerSpeed = UpgradeManager.Instance.Speed.value;
-        _rof = UpgradeManager.Instance.rangeROF.value;
+        _rof -= UpgradeManager.Instance.rangeROF.value;
 
-       // isSoundPlayed = false;
+        // isSoundPlayed = false;
     }
 
     private void Update()
@@ -68,8 +71,9 @@ public class PlayerController : MonoBehaviour
     {
         //Get Player actual position
         Vector3 playerPosition = transform.position;
-        
-        if(Input.GetAxis("Horizontal") !=0f || Input.GetAxis("Vertical") != 0f){
+
+        if (Input.GetAxis("Horizontal") != 0f || Input.GetAxis("Vertical") != 0f)
+        {
             //Move Player
             _rb.MovePosition(new Vector3(playerPosition.x + Input.GetAxis("Horizontal") * _playerSpeed * Time.deltaTime, playerPosition.y, playerPosition.z + Input.GetAxis("Vertical") * _playerSpeed * Time.deltaTime));
             //transform.position = new Vector3(playerPosition.x + Input.GetAxis("Horizontal") * _playerSpeed * Time.deltaTime, playerPosition.y, playerPosition.z + Input.GetAxis("Vertical") * _playerSpeed * Time.deltaTime);     
@@ -77,14 +81,15 @@ public class PlayerController : MonoBehaviour
             {
                 playAudio.PlayOneShot(stepClip, 0.5f);
                 StartCoroutine(WaitForSound(0.7f));
-             } 
+            }
+            auxiliar = true;
         }
     }
 
-     public IEnumerator WaitForSound(float time)
+    public IEnumerator WaitForSound(float time)
     {
-      // yield return new WaitUntil(() => playAudio.isPlaying == false);
-       yield return new WaitForSeconds(time);
+        // yield return new WaitUntil(() => playAudio.isPlaying == false);
+        yield return new WaitForSeconds(time);
     }
 
     private void WeaponSelect()
@@ -168,6 +173,14 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(_meleeROF);
 
         _shooting = false;
+    }
+
+    private void OnCollisionEnter(Collision obj)
+    {
+        if (obj.gameObject.tag == "coin")
+        {
+            playAudio.PlayOneShot(coinClip, 0.5f);
+        }
     }
 }
 

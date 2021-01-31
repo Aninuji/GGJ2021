@@ -10,6 +10,7 @@ TagManager:
   - Enemy_Melee
   - Damage
   - GlobalCoins
+  - coin
   layers:
   - Default
   - TransparentFX

@@ -35,25 +35,25 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         gameOverPanel.SetActive(true);
-        level++;
-        difficulty *= difficulty;
     }
     public void WinLevel()
     {
         winLevelPanel.SetActive(true);
-        level++;
 
-        difficulty *= difficulty;
 
     }
 
 
     public void ChangeScene(string name)
     {
-        LevelLoader.Instance.LoadScene(name);
 
         winLevelPanel.SetActive(false);
         gameOverPanel.SetActive(false);
+        LevelLoader.Instance.LoadScene(name);
+        level++;
+
+        difficulty *= difficulty;
+
 
 
     }
