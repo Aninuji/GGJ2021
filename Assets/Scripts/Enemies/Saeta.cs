@@ -22,21 +22,23 @@ public class Saeta : MonoBehaviour
     private NavMeshAgent _navMesh;
     private MeshRenderer _meshRenderer;
 
-
+    private EnemyHealth _health;
 
     private void Start()
     {
         _player = WorldGenerator.Instance._playerInstance;
         _navMesh = GetComponent<NavMeshAgent>();
         _meshRenderer = GetComponent<MeshRenderer>();
-
+        _health = GetComponent<EnemyHealth>();
     }
 
     private void Update()
     {
+        if (_health.isAboutToDie) return;
+
         Behaviour();
 
-        Color actualColor =_meshRenderer.material.color;
+        Color actualColor = _meshRenderer.material.color;
 
         Color newColor = new Color(actualColor.r, actualColor.g, actualColor.b, transparency);
 
@@ -51,7 +53,7 @@ public class Saeta : MonoBehaviour
             Debug.Log("Yeet");
             Vector3 desiredPos = new Vector3(transform.position.x - playerPos.x, transform.position.y, transform.position.z - playerPos.z);
 
-            
+
             _navMesh.destination = transform.position + desiredPos;
             transform.LookAt(new Vector3(playerPos.x, transform.position.y, playerPos.z));
             LerpColor();

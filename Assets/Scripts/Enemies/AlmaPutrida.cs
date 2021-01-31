@@ -14,12 +14,14 @@ public class AlmaPutrida : MonoBehaviour
     private GameObject _player;
     private NavMeshAgent _navMesh;
     public List<GameObject> childrens;
+    private EnemyHealth _health;
 
     private void Start()
     {
         childrens = new List<GameObject>();
         _player = WorldGenerator.Instance._playerInstance;
         _navMesh = GetComponent<NavMeshAgent>();
+        _health = GetComponent<EnemyHealth>();
 
         SpawnInitialChilds();
 
@@ -27,15 +29,19 @@ public class AlmaPutrida : MonoBehaviour
 
     private void Update()
     {
-        
+
+        if (_health.isAboutToDie) return;
+
         if (Vector3.Distance(_player.transform.position, transform.position) <= range)
         {
             _navMesh.destination = _player.transform.position;
             _canSpawn = true;
-        }else{
+        }
+        else
+        {
             _canSpawn = false;
         }
-        
+
 
     }
 
@@ -57,13 +63,13 @@ public class AlmaPutrida : MonoBehaviour
     {
         yield return new WaitForSeconds(_rateOfSpawn);
         Debug.Log("Trying to spawn");
-        if(_canSpawn)
+        if (_canSpawn)
         {
             Debug.Log("spawning");
             GameObject newEnemie = Instantiate(almaInstance, new Vector3(transform.position.x, transform.position.y, transform.position.z - 1), Quaternion.identity, transform);
             newEnemie.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
         }
         StartCoroutine(SpawnNewChild());
-        
+
     }
 }

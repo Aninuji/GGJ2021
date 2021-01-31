@@ -2,34 +2,59 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : Singleton<GameManager>
+public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance;
+
+    public int level = 1;
     public int difficulty = 5;
 
     [HideInInspector]
     public GameObject _playerInstance;
 
-    public GameObject gameOverPanel;
+    public GameObject gameOverPanel, winLevelPanel;
 
-    // Start is called before the first frame update
-    void StartGame()
+    /// <summary>
+    /// Awake is called when the script instance is being loaded.
+    /// </summary>
+    void Awake()
     {
-        WorldGenerator.Instance.SetupScene(5);
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(this);
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
     }
+    // Start is called before the first frame update
+
 
     public void GameOver()
     {
         gameOverPanel.SetActive(true);
+        level++;
+        difficulty *= difficulty;
+    }
+    public void WinLevel()
+    {
+        winLevelPanel.SetActive(true);
+        level++;
+
+        difficulty *= difficulty;
+
     }
 
-    public void Start()
-    {
-        StartGame();
-    }
 
     public void ChangeScene(string name)
     {
         LevelLoader.Instance.LoadScene(name);
+
+        winLevelPanel.SetActive(false);
+        gameOverPanel.SetActive(false);
+
 
     }
 }

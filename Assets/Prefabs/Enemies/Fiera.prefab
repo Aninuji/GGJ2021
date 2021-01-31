@@ -97,9 +97,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
-  m_Height: 2
+  m_Height: 3.66
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.89, z: 0}
 --- !u!114 &732904007894298776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,7 +149,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealth: 5
   deathParticles: {fileID: 6761005944100022217}
+  isAboutToDie: 0
   bar: {fileID: 4963550135594762920}
+  col: {fileID: 0}
 --- !u!95 &1895885527
 Animator:
   serializedVersion: 3

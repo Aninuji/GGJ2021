@@ -12,10 +12,15 @@ public class LevelLoader : MonoBehaviour
 
     void Awake()
     {
-        if (!Instance) Instance = this;
-        else Destroy(this);
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
     }
-
     public void LoadScene(string sceneName)
     {
         StartCoroutine(LoadLevel(sceneName));

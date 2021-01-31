@@ -46,6 +46,10 @@ public class PlayerController : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody>();
         playAudio= GetComponent<AudioSource>();
+
+        _playerSpeed = UpgradeManager.Instance.Speed.value;
+        _rof = UpgradeManager.Instance.rangeROF.value;
+
        // isSoundPlayed = false;
     }
 

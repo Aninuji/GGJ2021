@@ -9,6 +9,7 @@ TagManager:
   - Enemy_Arrow
   - Enemy_Melee
   - Damage
+  - GlobalCoins
   layers:
   - Default
   - TransparentFX
@@ -18,8 +19,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Player
+  - Weapons
   - 
   - 
   - 

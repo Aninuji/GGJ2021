@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.AI;
+[RequireComponent(typeof(Collider))]
 public class EnemyHealth : MonoBehaviour, IDamageable
 {
     public int MaxHealth;
 
     public GameObject deathParticles;
+
+    private NavMeshAgent agent;
     private int _CurrentHealth;
     public int CurrentHealth
     {
@@ -24,8 +27,10 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         }
     }
 
+    public bool isAboutToDie = false;
     public HealthBar bar;
 
+    public Collider col;
 
     public void HealDamage(int Heal)
     {
@@ -37,19 +42,31 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     {
         CurrentHealth -= Damage;
         bar.SetHealth(CurrentHealth);
-
     }
 
     public void Death()
     {
         deathParticles.SetActive(true);
-        Destroy(this.gameObject, 1);
+        isAboutToDie = true;
+        col.enabled = false;
+        agent.isStopped = true;
+        StartCoroutine(aboutToDie());
+
     }
 
+    IEnumerator aboutToDie()
+    {
+        yield return new WaitForSeconds(1);
+        Destroy(this.gameObject);
+
+    }
     void Start()
     {
         CurrentHealth = MaxHealth;
         bar.SetMaxHealth(MaxHealth);
+        if (!col) col = GetComponent<Collider>();
+        if (!agent) agent = GetComponent<NavMeshAgent>();
+
     }
 
     void OnCollisionEnter(Collision collision)
@@ -59,8 +76,12 @@ public class EnemyHealth : MonoBehaviour, IDamageable
             if (collision.gameObject.tag == "Player_Arrow")
             {
                 Destroy(collision.gameObject);
+                TakeDamage((int)UpgradeManager.Instance.rangeDamage.value);
             }
-            TakeDamage(1);
+            else if (collision.gameObject.tag == "Player_Melee")
+            {
+                TakeDamage((int)UpgradeManager.Instance.meleeDamage.value);
+            }
         }
     }
 
@@ -68,7 +89,15 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     {
         if (other.gameObject.tag == "Player_Arrow" || other.gameObject.tag == "Player_Melee")
         {
-            TakeDamage(5);
+            if (other.gameObject.tag == "Player_Arrow")
+            {
+                Destroy(other.gameObject);
+                TakeDamage((int)UpgradeManager.Instance.rangeDamage.value);
+            }
+            else if (other.gameObject.tag == "Player_Melee")
+            {
+                TakeDamage((int)UpgradeManager.Instance.meleeDamage.value);
+            }
         }
 
     }

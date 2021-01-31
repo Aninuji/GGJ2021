@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!65 &5311129304387282069
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3659165264914388154}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.3, y: 0.1, z: 0.5}
+  m_Center: {x: -0.15, y: 0.05, z: 0.050000004}
 --- !u!1 &5997786855213284630
 GameObject:
   m_ObjectHideFlags: 0
@@ -98,11 +111,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: macuahuitl
       objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: f3bc8d3f7a62c314c867706ad125a42b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player_Melee
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3bc8d3f7a62c314c867706ad125a42b, type: 3}
 --- !u!4 &4900457522054870745 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f3bc8d3f7a62c314c867706ad125a42b,
+    type: 3}
+  m_PrefabInstance: {fileID: 4867077669222994226}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3659165264914388154 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8164078558771037576, guid: f3bc8d3f7a62c314c867706ad125a42b,
     type: 3}
   m_PrefabInstance: {fileID: 4867077669222994226}
   m_PrefabAsset: {fileID: 0}

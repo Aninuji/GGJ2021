@@ -49,6 +49,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
     void Start()
     {
+        MaxHealth = (int)UpgradeManager.Instance.Health.value;
         CurrentHealth = MaxHealth;
         bar.SetMaxHealth(MaxHealth);
     }

@@ -6,11 +6,10 @@ using UnityEngine.AI;
 using Cinemachine;
 using Random = UnityEngine.Random;         //Tells Random to use the Unity Engine random number generator.
 
-public class WorldGenerator : Singleton<WorldGenerator>
+public class WorldGenerator : MonoBehaviour
 {
+    public static WorldGenerator Instance;
 
-    // (Optional) Prevent non-singleton constructor use.
-    protected WorldGenerator() { }
 
     // Using Serializable allows us to embed a class with sub properties in the inspector.
     [Serializable]
@@ -77,6 +76,17 @@ public class WorldGenerator : Singleton<WorldGenerator>
         }
     }
 
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+    }
 
     //Sets up the outer walls and floor (background) of the game board.
     void BoardSetup()
@@ -177,7 +187,7 @@ public class WorldGenerator : Singleton<WorldGenerator>
 
 
         //Instantiate the exit tile in the upper right hand corner of our game board
-        Instantiate(exit, new Vector3(0f, 0f, 0f), Quaternion.identity);
+        Instantiate(exit, RandomPosition(), Quaternion.identity);
 
         _playerInstance = Instantiate(player, new Vector3(columns - 1, 2.5f, rows - 1), Quaternion.identity);
         cam.Follow = _playerInstance.transform;
@@ -212,4 +222,11 @@ public class WorldGenerator : Singleton<WorldGenerator>
         return toInstantiate;
     }
 
+    void Start()
+    {
+        columns += GameManager.Instance.level;
+
+        WorldGenerator.Instance.SetupScene(GameManager.Instance.difficulty);
+
+    }
 }
