@@ -484,7 +484,7 @@ MonoBehaviour:
   normalTileThreshold: 0.5
   offset: 2.5
   scale: 5
-  columns: 25
+  columns: 20
   rows: 25
   wallCount:
     minimum: 50
@@ -493,8 +493,8 @@ MonoBehaviour:
     minimum: 50
     maximum: 60
   treasureCount:
-    minimum: 10
-    maximum: 30
+    minimum: 1
+    maximum: 3
   cam: {fileID: 1867864678}
   player: {fileID: 8948350649830089134, guid: da6122dc3e3b09248827890f81c9b92c, type: 3}
   _playerInstance: {fileID: 0}
@@ -795,37 +795,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meleeDamage:
     level: 0
-    MaxLevel: 5
-    price: 15
-    scalePrice: 15
+    MaxLevel: 10
+    price: 2
+    scalePrice: 2
     value: 2
     scaleValue: 2
   rangeDamage:
     level: 0
-    MaxLevel: 5
-    price: 20
-    scalePrice: 25
+    MaxLevel: 10
+    price: 3
+    scalePrice: 3
     value: 1
     scaleValue: 1
   rangeROF:
     level: 0
-    MaxLevel: 5
-    price: 15
-    scalePrice: 30
+    MaxLevel: 10
+    price: 3
+    scalePrice: 3
     value: 1
     scaleValue: 1
   Health:
     level: 0
     MaxLevel: 5
-    price: 15
-    scalePrice: 15
+    price: 10
+    scalePrice: 2
     value: 10
     scaleValue: 2
   Speed:
     level: 0
     MaxLevel: 5
     price: 15
-    scalePrice: 35
+    scalePrice: 2
     value: 4
     scaleValue: 1
 --- !u!4 &1949801289

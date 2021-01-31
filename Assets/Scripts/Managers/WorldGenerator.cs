@@ -225,6 +225,14 @@ public class WorldGenerator : MonoBehaviour
     void Start()
     {
         columns += GameManager.Instance.level;
+        treasureCount.minimum += GameManager.Instance.level;
+        treasureCount.maximum += GameManager.Instance.level;
+
+        wallCount.minimum += GameManager.Instance.level;
+        wallCount.maximum += GameManager.Instance.level + 1;
+
+        propCount.minimum += GameManager.Instance.level;
+        propCount.maximum += GameManager.Instance.level + 1;
 
         WorldGenerator.Instance.SetupScene(GameManager.Instance.difficulty);
 
