@@ -10,8 +10,6 @@ public class AlmaPutrida : MonoBehaviour
     [SerializeField]
     private float _rateOfSpawn = 2;
     [SerializeField]
-    private bool _isSpawner = true;
-    [SerializeField]
     private bool _canSpawn = false;
     private GameObject _player;
     private NavMeshAgent _navMesh;

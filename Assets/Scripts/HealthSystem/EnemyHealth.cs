@@ -53,12 +53,21 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     {
         if (collision.gameObject.tag == "Player_Arrow" || collision.gameObject.tag == "Player_Melee")
         {
-            if(collision.gameObject.tag == "Player_Arrow")
-        {
-            Destroy(collision.gameObject);
-        }
+            if (collision.gameObject.tag == "Player_Arrow")
+            {
+                Destroy(collision.gameObject);
+            }
             TakeDamage(1);
         }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player_Arrow" || other.gameObject.tag == "Player_Melee")
+        {
+            TakeDamage(5);
+        }
+
     }
 
 }

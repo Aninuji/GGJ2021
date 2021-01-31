@@ -136,8 +136,8 @@ MonoBehaviour:
   range: 8
   almaInstance: {fileID: 7299718508615719586, guid: e94adf1de3335674092c65cefb2e58ed,
     type: 3}
-  _rateOfSpawn: 1
-  _isSpawner: 1
+  _rateOfSpawn: 2
+  _canSpawn: 0
   childrens: []
 --- !u!114 &1589693660273957899
 MonoBehaviour:
