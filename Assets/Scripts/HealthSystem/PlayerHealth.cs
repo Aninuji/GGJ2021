@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour, IDamageable
 {
-   
+
     public int MaxHealth;
     private int _CurrentHealth;
     public int CurrentHealth
@@ -43,7 +43,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     {
         Destroy(this.gameObject, 0.5f);
 
-        
+
         GameManager.Instance.GameOver();
     }
 
@@ -55,9 +55,14 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Enemy_Arrow" || collision.gameObject.tag == "Player_Melee")
+        if (collision.gameObject.tag == "Enemy_Arrow" || collision.gameObject.tag == "Enemy_Melee")
         {
+            if (collision.gameObject.tag == "Enemy_Arrow")
+            {
+                Destroy(collision.gameObject);
+            }
             TakeDamage(1);
         }
+
     }
 }

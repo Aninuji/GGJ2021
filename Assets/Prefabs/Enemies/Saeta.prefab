@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 837596473}
   m_Layer: 0
   m_Name: Saeta
-  m_TagString: Untagged
+  m_TagString: Enemy_Melee
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -116,7 +116,7 @@ MonoBehaviour:
   range: 10
   _runSpeed: 2
   _rof: 1
-  _proyectileSpeed: 3
+  _proyectileSpeed: 15
 --- !u!195 &1027475745204604442
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 5
-  bar: {fileID: 0}
+  bar: {fileID: 5449492379894036579}
 --- !u!1001 &8440792619046759335
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -313,6 +313,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 8440792619046759335}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5449492379894036579 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4504659934885794756, guid: a92bf40b918638b4f8f51e2219b122e4,
+    type: 3}
+  m_PrefabInstance: {fileID: 8440792619046759335}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 691b12f22e30de74198caf05bec99165, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &7626168131008870325 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2086907880215501842, guid: a92bf40b918638b4f8f51e2219b122e4,

@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 3790596934965909269}
   m_Layer: 0
   m_Name: Fiera
-  m_TagString: Untagged
+  m_TagString: Enemy_Melee
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

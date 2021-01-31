@@ -81,7 +81,7 @@ public class Saeta : MonoBehaviour
         proyectile.GetComponent<Rigidbody>().AddRelativeForce(transform.forward * _proyectileSpeed, ForceMode.Impulse);
         _shooting = true;
         yield return new WaitForSeconds(_rof);
-        Destroy(proyectile, 3);
+        Destroy(proyectile, 1);
         _shooting = false;
     }
 }

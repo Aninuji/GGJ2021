@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6614071425884411938}
   m_Layer: 0
   m_Name: arrow_3d-2
-  m_TagString: Untagged
+  m_TagString: Enemy_Arrow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -8469494145858465668, guid: c3d74665d1a23ef4ab76b624888ade56, type: 3}
+  - {fileID: 2100000, guid: 23eee2f1a9fe77d489f259036d164f1c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
