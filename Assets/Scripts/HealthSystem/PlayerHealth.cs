@@ -42,6 +42,9 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     public void Death()
     {
         Destroy(this.gameObject, 0.5f);
+
+        
+        GameManager.Instance.GameOver();
     }
 
     void Start()

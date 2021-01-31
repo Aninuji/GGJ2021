@@ -405,26 +405,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 815879393724640148, guid: a92bf40b918638b4f8f51e2219b122e4,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1014678202488189044, guid: a92bf40b918638b4f8f51e2219b122e4,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1014678202488189044, guid: a92bf40b918638b4f8f51e2219b122e4,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4504659934885794756, guid: a92bf40b918638b4f8f51e2219b122e4,
-        type: 3}
-      propertyPath: fill
-      value: 
-      objectReference: {fileID: 7392651624508804478}
     - target: {fileID: 5944086587958235228, guid: a92bf40b918638b4f8f51e2219b122e4,
         type: 3}
       propertyPath: m_Pivot.x
@@ -469,21 +449,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 147.17763
-      objectReference: {fileID: 0}
-    - target: {fileID: 5944086587958235228, guid: a92bf40b918638b4f8f51e2219b122e4,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.008266681
-      objectReference: {fileID: 0}
-    - target: {fileID: 5944086587958235228, guid: a92bf40b918638b4f8f51e2219b122e4,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.008266681
-      objectReference: {fileID: 0}
-    - target: {fileID: 5944086587958235228, guid: a92bf40b918638b4f8f51e2219b122e4,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.008374975
       objectReference: {fileID: 0}
     - target: {fileID: 5944086587958235228, guid: a92bf40b918638b4f8f51e2219b122e4,
         type: 3}
@@ -563,17 +528,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 691b12f22e30de74198caf05bec99165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &7392651624508804478 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2086907880215501842, guid: a92bf40b918638b4f8f51e2219b122e4,
-    type: 3}
-  m_PrefabInstance: {fileID: 8818565755487031660}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
