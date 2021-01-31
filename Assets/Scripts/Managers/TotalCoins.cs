@@ -9,12 +9,6 @@ public class TotalCoins : Singleton<TotalCoins>
    // private int minCoins = 0;
     private int totalCoins;
     public Text coinsText; 
-    public int totalCoins;
-    
-    [TextArea]
-    public string Notes = "Comment Here.";
-    public TextMesh coinsMesh; 
-
     void Awake(){
         DontDestroyOnLoad(gameObject);
        
