@@ -502,9 +502,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4704b0b906bfc9c4f916cde5756d8162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  difficulty: 5
+  difficulty: 20
   _playerInstance: {fileID: 0}
-  gameOverPanel: {fileID: 0}
+  gameOverPanel: {fileID: 1834959016}
 --- !u!1 &1318777012
 GameObject:
   m_ObjectHideFlags: 0
@@ -720,6 +720,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1131845578}
     m_Modifications:
+    - target: {fileID: 2081955402, guid: f986fe9910872ab4c9aee6d527da747c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 382913351698353603, guid: f986fe9910872ab4c9aee6d527da747c,
         type: 3}
       propertyPath: m_RootOrder
@@ -778,7 +782,7 @@ PrefabInstance:
     - target: {fileID: 4772400754648023542, guid: f986fe9910872ab4c9aee6d527da747c,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.000579834
+      value: 0.00061035156
       objectReference: {fileID: 0}
     - target: {fileID: 4772400754648023542, guid: f986fe9910872ab4c9aee6d527da747c,
         type: 3}
@@ -816,7 +820,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1834959017
 RectTransform:
   m_ObjectHideFlags: 0

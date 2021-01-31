@@ -5,6 +5,8 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour, IDamageable
 {
     public int MaxHealth;
+
+    public GameObject deathParticles;
     private int _CurrentHealth;
     public int CurrentHealth
     {
@@ -40,7 +42,8 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
     public void Death()
     {
-        Destroy(this.gameObject, 0.5f);
+        deathParticles.SetActive(true);
+        Destroy(this.gameObject, 1);
     }
 
     void Start()
