@@ -9,6 +9,8 @@ public class GameManager : Singleton<GameManager>
     [HideInInspector]
     public GameObject _playerInstance;
 
+    public GameObject gameOverPanel;
+
     // Start is called before the first frame update
     void StartGame()
     {
@@ -17,7 +19,7 @@ public class GameManager : Singleton<GameManager>
 
     public void GameOver()
     {
-
+        gameOverPanel.SetActive(true);
     }
 
     public void Start(){

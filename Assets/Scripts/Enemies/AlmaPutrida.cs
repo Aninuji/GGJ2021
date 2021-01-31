@@ -7,14 +7,15 @@ public class AlmaPutrida : MonoBehaviour
 {
     public float range;
     public GameObject almaInstance;
+    [SerializeField]
+    private float _rateOfSpawn = 2;
+    [SerializeField]
+    private bool _isSpawner = true;
+    [SerializeField]
+    private bool _canSpawn = false;
     private GameObject _player;
     private NavMeshAgent _navMesh;
-    [SerializeField]
-    private float _rateOfSpawn;
-
-    [SerializeField]
-    private bool _isSpawner = false;
-    private List<GameObject> childrens;
+    public List<GameObject> childrens;
 
     private void Start()
     {
@@ -22,30 +23,33 @@ public class AlmaPutrida : MonoBehaviour
         _player = WorldGenerator.Instance._playerInstance;
         _navMesh = GetComponent<NavMeshAgent>();
 
-        if (_isSpawner)
-        {
-            InitialSpawn();
-        }
+        SpawnInitialChilds();
+
     }
 
     private void Update()
     {
+        
         if (Vector3.Distance(_player.transform.position, transform.position) <= range)
         {
             _navMesh.destination = _player.transform.position;
+            _canSpawn = true;
+        }else{
+            _canSpawn = false;
         }
+        
+
     }
 
-    private void InitialSpawn()
+    public void SpawnInitialChilds()
     {
-        childrens.Add(Instantiate(almaInstance, new Vector3(transform.position.x + 1, transform.position.y, transform.position.z), Quaternion.identity, transform));
-        childrens.Add(Instantiate(almaInstance, new Vector3(transform.position.x - 1, transform.position.y, transform.position.z), Quaternion.identity, transform));
-        childrens.Add(Instantiate(almaInstance, new Vector3(transform.position.x, transform.position.y, transform.position.z + 1), Quaternion.identity, transform));
-        childrens.Add(Instantiate(almaInstance, new Vector3(transform.position.x, transform.position.y, transform.position.z - 1), Quaternion.identity, transform));
-
-        foreach (GameObject c in childrens)
+        for (int i = -1; i < 2; i += 2)
         {
-            c.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
+            for (int j = -1; j < 2; j += 2)
+            {
+                GameObject newEnemie = Instantiate(almaInstance, new Vector3(transform.position.x + i, transform.position.y, transform.position.z + j), Quaternion.identity, transform);
+                childrens.Add(newEnemie);
+            }
         }
 
         StartCoroutine(SpawnNewChild());
@@ -54,9 +58,14 @@ public class AlmaPutrida : MonoBehaviour
     public IEnumerator SpawnNewChild()
     {
         yield return new WaitForSeconds(_rateOfSpawn);
-        GameObject newEnemie = Instantiate(almaInstance, new Vector3(transform.position.x, transform.position.y, transform.position.z - 1), Quaternion.identity, transform);
-        newEnemie.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
-        childrens.Add(newEnemie);
+        Debug.Log("Trying to spawn");
+        if(_canSpawn)
+        {
+            Debug.Log("spawning");
+            GameObject newEnemie = Instantiate(almaInstance, new Vector3(transform.position.x, transform.position.y, transform.position.z - 1), Quaternion.identity, transform);
+            newEnemie.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
+        }
         StartCoroutine(SpawnNewChild());
+        
     }
 }

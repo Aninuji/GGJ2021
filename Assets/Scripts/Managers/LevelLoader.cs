@@ -1,21 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class LevelLoader : Singleton<LevelLoader>
 {
+    public Animator transition;
 
+    public float transitionTime = 1f;
     protected LevelLoader() { }
 
-    // Start is called before the first frame update
-    void Start()
+    public void LoadScene(string sceneName)
     {
-
+        StartCoroutine(LoadLevel(sceneName));
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator LoadLevel(string sceneName)
     {
+        transition.SetTrigger("start");
+
+        yield return new WaitForSeconds(transitionTime);
+
+        SceneManager.LoadScene(sceneName);
 
     }
 }

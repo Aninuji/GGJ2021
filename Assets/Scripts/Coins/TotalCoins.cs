@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TotalCoins : MonoBehaviour
+public class TotalCoins : Singleton<TotalCoins>
 {
 
    // private int minCoins = 0;
