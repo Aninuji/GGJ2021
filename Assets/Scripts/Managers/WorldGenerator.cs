@@ -27,7 +27,7 @@ public class WorldGenerator : Singleton<WorldGenerator>
             maximum = max;
         }
     }
-    public int difficulty = 5;
+
     [Range(0, 1)]
     public float normalTileThreshold = 0.5f;
     public float offset = 1f;
@@ -175,13 +175,13 @@ public class WorldGenerator : Singleton<WorldGenerator>
         //Before adding the enemies, but after we added anything else; we build the navmesh
         surface.BuildNavMesh();
 
-        
+
         //Instantiate the exit tile in the upper right hand corner of our game board
         Instantiate(exit, new Vector3(0f, 0f, 0f), Quaternion.identity);
 
         _playerInstance = Instantiate(player, new Vector3(columns - 1, 2.5f, rows - 1), Quaternion.identity);
         cam.Follow = _playerInstance.transform;
-
+        GameManager.Instance._playerInstance = _playerInstance;
         //Determine number of enemies based on current level number, based on a logarithmic progression
         int enemyCount = (int)Mathf.Log(level, 2f);
         //Instantiate a random number of enemies based on minimum and maximum, at randomized positions.
@@ -212,8 +212,4 @@ public class WorldGenerator : Singleton<WorldGenerator>
         return toInstantiate;
     }
 
-    void Start()
-    {
-        SetupScene(difficulty);
-    }
 }
