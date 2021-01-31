@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyHealth : MonoBehaviour, IDamageable
+public class PlayerHealth : MonoBehaviour, IDamageable
 {
+   
     public int MaxHealth;
     private int _CurrentHealth;
     public int CurrentHealth
@@ -41,6 +42,9 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     public void Death()
     {
         Destroy(this.gameObject, 0.5f);
+
+        
+        GameManager.Instance.GameOver();
     }
 
     void Start()
@@ -51,10 +55,9 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Player_Arrow" || collision.gameObject.tag == "Player_Melee")
+        if (collision.gameObject.tag == "Enemy_Arrow" || collision.gameObject.tag == "Player_Melee")
         {
             TakeDamage(1);
         }
     }
-
 }

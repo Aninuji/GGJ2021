@@ -17,7 +17,7 @@ public class DestroyAndCoins : MonoBehaviour
     }
     
     private void OnCollisionEnter(Collision obj){
-        if(obj.gameObject.tag == "Player_Arrow" || obj.gameObject.tag == "Player_Melee" || obj.gameObject.tag == "Damage"){
+        if(obj.gameObject.tag == "Player_Arrow" || obj.gameObject.tag == "Player_Melee"){
             int totalCoins = (int)Random.Range(1.0f, 4.0f);
             
             for (int i = 0; i < totalCoins; i++){
