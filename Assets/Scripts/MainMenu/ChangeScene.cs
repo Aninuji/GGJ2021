@@ -14,9 +14,7 @@ public class ChangeScene : MonoBehaviour
 
     private IEnumerator Waiter(string sceneNameTarget)
     {
-        Debug.Log("waiter");
        yield return new WaitForSeconds(0.5f);
-       Debug.Log("after wait");
         SceneManager.LoadScene(sceneNameTarget);
     }
 }
