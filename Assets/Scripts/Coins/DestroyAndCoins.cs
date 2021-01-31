@@ -21,7 +21,7 @@ public class DestroyAndCoins : MonoBehaviour
 
             for (int i = 0; i < totalCoins; i++)
             {
-                Vector3 newPosition = new Vector3(Random.Range(0.0f, 2.5f), -0.95f, Random.Range(0.0f, 2.5f));
+                Vector3 newPosition = new Vector3(Random.Range(0.0f, 2.5f), 0.5f, Random.Range(0.0f, 2.5f));
                 Instantiate(coin, transform.position + newPosition, Quaternion.identity);
             }
             GetComponent<MeshRenderer>().enabled = false;
