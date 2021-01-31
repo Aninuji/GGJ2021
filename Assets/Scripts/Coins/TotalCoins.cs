@@ -8,9 +8,6 @@ public class TotalCoins : Singleton<TotalCoins>
 
    // private int minCoins = 0;
     private int totalCoins;
-    
-    [TextArea]
-    public string Notes = "Comment Here.";
     public Text coinsText; 
 
     void Awake(){
