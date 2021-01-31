@@ -36,14 +36,17 @@ public class PlayerController : MonoBehaviour
     public GameObject meleeHitBox;
     #endregion
 
-    public AudioSource stepSound;
-    public AudioSource soundAttack;
+    public AudioSource playAudio;
+     public AudioClip stepClip;
+     public AudioClip attackClip;
+//    public bool isSoundPlayed;
 
 
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
-        stepSound= GetComponent<AudioSource>();
+        playAudio= GetComponent<AudioSource>();
+       // isSoundPlayed = false;
     }
 
     private void Update()
@@ -62,10 +65,22 @@ public class PlayerController : MonoBehaviour
         //Get Player actual position
         Vector3 playerPosition = transform.position;
         
-        //Move Player
-        _rb.MovePosition(new Vector3(playerPosition.x + Input.GetAxis("Horizontal") * _playerSpeed * Time.deltaTime, playerPosition.y, playerPosition.z + Input.GetAxis("Vertical") * _playerSpeed * Time.deltaTime));
-        //transform.position = new Vector3(playerPosition.x + Input.GetAxis("Horizontal") * _playerSpeed * Time.deltaTime, playerPosition.y, playerPosition.z + Input.GetAxis("Vertical") * _playerSpeed * Time.deltaTime);
-        stepSound.Play();
+        if(Input.GetAxis("Horizontal") !=0f || Input.GetAxis("Vertical") != 0f){
+            //Move Player
+            _rb.MovePosition(new Vector3(playerPosition.x + Input.GetAxis("Horizontal") * _playerSpeed * Time.deltaTime, playerPosition.y, playerPosition.z + Input.GetAxis("Vertical") * _playerSpeed * Time.deltaTime));
+            //transform.position = new Vector3(playerPosition.x + Input.GetAxis("Horizontal") * _playerSpeed * Time.deltaTime, playerPosition.y, playerPosition.z + Input.GetAxis("Vertical") * _playerSpeed * Time.deltaTime);     
+            if (playAudio.isPlaying == false)
+            {
+                playAudio.PlayOneShot(stepClip, 0.5f);
+                StartCoroutine(WaitForSound(0.7f));
+             } 
+        }
+    }
+
+     public IEnumerator WaitForSound(float time)
+    {
+      // yield return new WaitUntil(() => playAudio.isPlaying == false);
+       yield return new WaitForSeconds(time);
     }
 
     private void WeaponSelect()
@@ -134,7 +149,7 @@ public class PlayerController : MonoBehaviour
         _shooting = true;
         GameObject newBullet = Instantiate(bulletPrefab, _barrel.position, Quaternion.identity);
         newBullet.GetComponent<Rigidbody>().AddRelativeForce(transform.forward * _proyectileSpeed, ForceMode.Impulse);
-        soundAttack.Play();
+        playAudio.PlayOneShot(attackClip, 0.5f);
         yield return new WaitForSeconds(_rof);
         Destroy(newBullet, 3);
         _shooting = false;
@@ -144,7 +159,7 @@ public class PlayerController : MonoBehaviour
     {
         _shooting = true;
         GameObject hitBox = Instantiate(meleeHitBox, _barrel.position, transform.rotation, transform);
-        soundAttack.Play();
+        playAudio.PlayOneShot(attackClip, 0.5f);
         Destroy(hitBox, 0.5f);
         yield return new WaitForSeconds(_meleeROF);
 
