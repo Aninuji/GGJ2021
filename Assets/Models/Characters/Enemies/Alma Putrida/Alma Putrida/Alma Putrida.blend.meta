@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 889dc0dacf9aef942982d509eb85dc49
+guid: 67d013beae772244fbb20e1af30419c3
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
@@ -7,13 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: defaultMat
-    second: {fileID: 2100000, guid: c7e1a4b6664aa40438abcdf137c548af, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
       name: palette
-    second: {fileID: 2100000, guid: cc9282d8049e97048b5eb5e09375f127, type: 2}
+    second: {fileID: 2100000, guid: c7e1a4b6664aa40438abcdf137c548af, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -41,7 +36,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 1
+    isReadable: 0
   meshes:
     lODScreenPercentages: []
     globalScale: 1

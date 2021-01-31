@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e289804f267eec44188c4a7ca7468fb6
+guid: 7ac5825b5bba3554f82b392278b3c278
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
@@ -7,7 +7,7 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: defaultMat
+      name: palette
     second: {fileID: 2100000, guid: c7e1a4b6664aa40438abcdf137c548af, type: 2}
   materials:
     materialImportMode: 1
@@ -36,7 +36,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 1
+    isReadable: 0
   meshes:
     lODScreenPercentages: []
     globalScale: 1
