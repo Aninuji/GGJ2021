@@ -586,7 +586,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1445118797}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1131845579}
+        m_MethodName: ChangeScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Store
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1318777015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -709,14 +720,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1131845578}
     m_Modifications:
-    - target: {fileID: 2081955402, guid: f986fe9910872ab4c9aee6d527da747c, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2081955402, guid: f986fe9910872ab4c9aee6d527da747c, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 382913351698353603, guid: f986fe9910872ab4c9aee6d527da747c,
         type: 3}
       propertyPath: m_RootOrder
@@ -771,6 +774,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4772400754648023542, guid: f986fe9910872ab4c9aee6d527da747c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.000579834
+      objectReference: {fileID: 0}
+    - target: {fileID: 4772400754648023542, guid: f986fe9910872ab4c9aee6d527da747c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.001739502
       objectReference: {fileID: 0}
     - target: {fileID: 8563080014495684651, guid: f986fe9910872ab4c9aee6d527da747c,
         type: 3}
@@ -986,7 +999,7 @@ PrefabInstance:
     - target: {fileID: 545943416818241772, guid: b6dc54045ffd49849a0e0fe4e781216a,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 545943416818241773, guid: b6dc54045ffd49849a0e0fe4e781216a,
         type: 3}

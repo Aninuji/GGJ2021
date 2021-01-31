@@ -22,7 +22,14 @@ public class GameManager : Singleton<GameManager>
         gameOverPanel.SetActive(true);
     }
 
-    public void Start(){
+    public void Start()
+    {
         StartGame();
+    }
+
+    public void ChangeScene(string name)
+    {
+        LevelLoader.Instance.LoadScene(name);
+
     }
 }
