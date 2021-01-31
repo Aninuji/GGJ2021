@@ -34,13 +34,16 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        TotalCoins.Instance._totalCoins = 0;
+        level = 1;
+        difficulty = 25;
         gameOverPanel.SetActive(true);
     }
     public void WinLevel()
     {
         winLevelPanel.SetActive(true);
-
-
+        level++;
+        difficulty += 50;
     }
 
 
@@ -50,9 +53,7 @@ public class GameManager : MonoBehaviour
         winLevelPanel.SetActive(false);
         gameOverPanel.SetActive(false);
         LevelLoader.Instance.LoadScene(name);
-        level++;
 
-        difficulty *= difficulty;
 
 
 
