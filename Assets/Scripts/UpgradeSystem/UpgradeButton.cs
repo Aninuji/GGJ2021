@@ -15,6 +15,7 @@ public class UpgradeButton : MonoBehaviour
     void Start()
     {
         TotalCoins.Instance.coinChangeEvent += UpdateButton;
+        UpdateButton(TotalCoins.Instance.totalCoins);
     }
 
     void OnDestroy()

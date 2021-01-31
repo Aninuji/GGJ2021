@@ -268,7 +268,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.66
-  m_Text: 'Upgrade Speed
+  m_Text: 'Upgrade Health
 
 '
 --- !u!222 &145941046
@@ -427,7 +427,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.66
-  m_Text: 'Upgrade Speed
+  m_Text: 'Upgrade Range Attack Speed
 
 '
 --- !u!222 &444844892
@@ -1269,9 +1269,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.66
-  m_Text: 'Upgrade Speed
-
-'
+  m_Text: Upgrade Range Damage
 --- !u!222 &730253636
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1834,7 +1832,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.66
-  m_Text: $15
+  m_Text: 
 --- !u!222 &1080529340
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2295,7 +2293,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.66
-  m_Text: $15
+  m_Text: 
 --- !u!222 &1486128288
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2373,7 +2371,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.66
-  m_Text: 'Upgrade Speed
+  m_Text: 'Upgrade Melee Damage
 
 '
 --- !u!222 &1507635492
@@ -2453,7 +2451,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.66
-  m_Text: $15
+  m_Text: 
 --- !u!222 &1872938671
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2531,7 +2529,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.66
-  m_Text: $15
+  m_Text: 
 --- !u!222 &1900645999
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2836,7 +2834,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.66
-  m_Text: $15
+  m_Text: '
+
+'
 --- !u!222 &2111757929
 CanvasRenderer:
   m_ObjectHideFlags: 0

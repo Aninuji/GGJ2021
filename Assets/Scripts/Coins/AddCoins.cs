@@ -24,7 +24,7 @@ public class AddCoins : MonoBehaviour
             if(totalCoinsObj != null ){
                 totalCoinsObj.addTotalCoins(1);
             }
-            Destroy(gameObject);
+            Destroy(transform.parent.gameObject);
         }
     } 
 }
