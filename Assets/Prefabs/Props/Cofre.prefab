@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4973399773672372309}
   - component: {fileID: 8367875709227293889}
   - component: {fileID: 365228319275568603}
+  - component: {fileID: 7708948550422718147}
   m_Layer: 0
   m_Name: default
   m_TagString: Untagged
@@ -93,6 +94,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.5999999, y: 1.2, z: 1.9}
   m_Center: {x: 0.099999994, y: 0.6, z: -0.050000012}
+--- !u!114 &7708948550422718147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1397260047888929316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3123b0a47ecacb949b749960d32d5179, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coin: {fileID: 5214547849533849847, guid: b791c95f33755fb43a7de550b4b7a63e, type: 3}
 --- !u!1 &7992160339445721853
 GameObject:
   m_ObjectHideFlags: 0
@@ -102,6 +116,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7323428934690861127}
+  - component: {fileID: 184541629437461952}
   m_Layer: 0
   m_Name: Cofre
   m_TagString: Untagged
@@ -124,3 +139,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &184541629437461952
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7992160339445721853}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
