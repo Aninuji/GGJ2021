@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: 1868db9d6c3c6ea4f980a8a6b75c4abe
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 30
+  forceTextureCase: 3
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: 8-bit Arcade In
+  fontNames:
+  - 8-bit Arcade In
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 8fb312698b9f5e340af014cb12e3c287, type: 3}
+  - {fileID: 12800000, guid: 28bba4aa0fc773a4781c937acd236890, type: 3}
+  customCharacters: 'Coins: 0123456789'
+  fontRenderingMode: 2
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
