@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     [Tooltip("barrel for instantiating proyectiles")]
     private Transform _barrel;
+    private Rigidbody _rb;
     private bool _shooting = false;
     private bool _isRanged = true;
     #endregion
@@ -35,21 +36,30 @@ public class PlayerController : MonoBehaviour
     public GameObject meleeHitBox;
     #endregion
 
+    void Start()
+    {
+        _rb = GetComponent<Rigidbody>();
+    }
 
     private void Update()
     {
-        MovePlayer();
+        //MovePlayer();
         Aim();
         WeaponSelect();
     }
 
+    private void FixedUpdate()
+    {
+        MovePlayer();
+    }
     private void MovePlayer()
     {
         //Get Player actual position
         Vector3 playerPosition = transform.position;
 
         //Move Player
-        transform.position = new Vector3(playerPosition.x + Input.GetAxis("Horizontal") * _playerSpeed * Time.deltaTime, playerPosition.y, playerPosition.z + Input.GetAxis("Vertical") * _playerSpeed * Time.deltaTime);
+        _rb.MovePosition(new Vector3(playerPosition.x + Input.GetAxis("Horizontal") * _playerSpeed * Time.deltaTime, playerPosition.y, playerPosition.z + Input.GetAxis("Vertical") * _playerSpeed * Time.deltaTime));
+        //transform.position = new Vector3(playerPosition.x + Input.GetAxis("Horizontal") * _playerSpeed * Time.deltaTime, playerPosition.y, playerPosition.z + Input.GetAxis("Vertical") * _playerSpeed * Time.deltaTime);
     }
 
     private void WeaponSelect()
