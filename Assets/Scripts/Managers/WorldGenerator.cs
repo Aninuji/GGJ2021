@@ -234,6 +234,9 @@ public class WorldGenerator : MonoBehaviour
         propCount.minimum += GameManager.Instance.level;
         propCount.maximum += GameManager.Instance.level + 1;
 
+
+        scale += GameManager.Instance.level;
+
         WorldGenerator.Instance.SetupScene(GameManager.Instance.difficulty);
 
     }
