@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TotalCoins : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class TotalCoins : MonoBehaviour
     
     [TextArea]
     public string Notes = "Comment Here.";
-    public TextMesh coinsMesh; 
+    public Text coinsText; 
 
     void Awake(){
         DontDestroyOnLoad(gameObject);
@@ -19,19 +20,19 @@ public class TotalCoins : MonoBehaviour
 
     public void addTotalCoins(int coins){
         totalCoins = totalCoins + coins;
-        if(coinsMesh != null){
+        if(coinsText != null){
             setText();
         }
     }
 
     public void diffTotalCoins(int coins){
         totalCoins = totalCoins - coins;
-        if(coinsMesh != null){
+        if(coinsText != null){
             setText();
         }
     }
 
     private void setText(){
-        coinsMesh.text = "Coins: " + totalCoins;
+        coinsText.text = totalCoins.ToString();
     }
 }
