@@ -43,8 +43,8 @@ Camera:
   m_GameObject: {fileID: 1314418686}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.11776566, g: 0.054067295, b: 0.254717, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -531,7 +531,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerSpeed: 6
   _rof: 1
-  _meleeROF: 2
+  _meleeROF: 1
   _proyectileSpeed: 15
   _barrel: {fileID: 3847053712118161718}
   bulletPrefab: {fileID: 8312512992557137151, guid: bbd5786a7895fc047855c23f91d1d734,
