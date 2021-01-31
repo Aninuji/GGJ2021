@@ -355,7 +355,7 @@ MonoBehaviour:
   meleeHitBox: {fileID: 7264452117347537670, guid: 3f4492f8687d0b74daab906d7e978042,
     type: 3}
   playAudio: {fileID: 1749756970473628672}
-  stepClip: {fileID: 8300000, guid: 2496549377b3898488f6c1651777f5e7, type: 3}
+  stepClip: {fileID: 8300000, guid: da7c05194443cfa45af522faefdaae41, type: 3}
   attackClip: {fileID: 8300000, guid: 66c41ccb667c4b544b02827614333db7, type: 3}
 --- !u!54 &716596333
 Rigidbody:
