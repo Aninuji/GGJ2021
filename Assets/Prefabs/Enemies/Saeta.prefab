@@ -108,6 +108,7 @@ GameObject:
   - component: {fileID: 1027475745204604442}
   - component: {fileID: 837596473}
   - component: {fileID: 6854996886181528494}
+  - component: {fileID: 3058397664800385880}
   m_Layer: 0
   m_Name: Saeta
   m_TagString: Enemy_Melee
@@ -201,7 +202,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6910068119968582573}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c53bbcf73b4afb845b82c7753bcc14d2, type: 3}
   m_Name: 
@@ -220,7 +221,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6910068119968582573}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5
@@ -242,7 +243,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6910068119968582573}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dbc3f01ec3518a54bbff0c34bc26e46d, type: 3}
   m_Name: 
@@ -351,6 +352,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &3058397664800385880
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6910068119968582573}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d4884cd2ce296964a9bc8e06b75e61e2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7354814639667408867
 GameObject:
   m_ObjectHideFlags: 0
@@ -5180,7 +5200,7 @@ PrefabInstance:
     - target: {fileID: 1656096936638368382, guid: f026fd2b674f7bf4e82c24ca4f8d52e5,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1681357755827455360, guid: f026fd2b674f7bf4e82c24ca4f8d52e5,
         type: 3}
@@ -5222,6 +5242,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 93787bcda2e98dc43b0a7d4b51ddb7a3, type: 2}
+    - target: {fileID: 6787566875834417319, guid: f026fd2b674f7bf4e82c24ca4f8d52e5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7623523216745957265, guid: f026fd2b674f7bf4e82c24ca4f8d52e5,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -5230,9 +5255,12 @@ PrefabInstance:
     - target: {fileID: 7866880048061442068, guid: f026fd2b674f7bf4e82c24ca4f8d52e5,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 139408143146979261, guid: f026fd2b674f7bf4e82c24ca4f8d52e5, type: 3}
+    - {fileID: 139408143146979256, guid: f026fd2b674f7bf4e82c24ca4f8d52e5, type: 3}
+    - {fileID: 139408143146979235, guid: f026fd2b674f7bf4e82c24ca4f8d52e5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f026fd2b674f7bf4e82c24ca4f8d52e5, type: 3}
 --- !u!4 &4626809020326389976 stripped
 Transform:

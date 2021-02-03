@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
     private bool auxiliar = false;
 
     //    public bool isSoundPlayed;
-
+    public GameObject melee, range;
 
     void Start()
     {
@@ -97,11 +97,16 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown("1"))
         {
             Debug.Log("Ranged Weapon Selected");
+            melee.SetActive(false);
+            range.SetActive(true);
+
             _isRanged = true;
         }
         else if (Input.GetKeyDown("2"))
         {
             _shooting = false;
+            melee.SetActive(true);
+            range.SetActive(false);
             Debug.Log("Melee Weapon Selected");
             _isRanged = false;
         }
